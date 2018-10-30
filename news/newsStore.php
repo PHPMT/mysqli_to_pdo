@@ -10,7 +10,7 @@
   
     $conn = openConnect($host, $user, $pass, $nameDataBase);
     $newsResult = $conn->query("SELECT * FROM news");
-    $news = $newsResult;
+    $news = $newsResult->fetch_all();
     return $news;
   }
 

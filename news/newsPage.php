@@ -9,14 +9,14 @@
     echo renderSection('<h2>News</h2>');
     $listNews = getNews();  
     
-    while ($news = $listNews->fetch_assoc()) {
-      $title = "<h3>".$news['title']."</h3>";
-      $dateToFormat = new DateTime($news['date']);
+    foreach($listNews as $news) {
+      $title = "<h3>".$news[1]."</h3>";
+      $dateToFormat = new DateTime($news[3]);
       $date = $dateToFormat->format('d/m/Y');
       $time = $dateToFormat->format('H:i');
 
       echo renderSection($title);
       echo renderDate($date.' as '.$time);
-      echo renderDescription($news['description']);
+      echo renderDescription($news[2]);
     }
   }
