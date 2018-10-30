@@ -9,7 +9,7 @@
     echo renderSection('<h2>News</h2>');
     $listNews = getNews();  
     
-    while ($news = $listNews->fetch_assoc()) {
+    foreach($listNews as $news) {
       $title = "<h3>".$news['title']."</h3>";
       $dateToFormat = new DateTime($news['date']);
       $date = $dateToFormat->format('d/m/Y');
